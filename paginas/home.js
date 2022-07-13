@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, TouchableOpacity, FlatList, Alert} from 'react-native';
 import { visualizartodosContatos } from './model';
 
-export default function Home() {
+export default function Home(navigation) {
 const [dadosContatos, setDadosContatos] = useEffect([]);
 
 async function buscarContatos(){
@@ -23,7 +23,7 @@ useEffect(async ()=>{
   return (
     <View style={styles.container}>
       <Text>Contato</Text>
-      <TouchableOpacity style={estilo.botaocadastra}>
+      <TouchableOpacity style={estilo.botaocadastra} onPress={()=>navigation.navigate('Cadastro')}>
         <Text style={estilo.botaoTextoCadastra}>Cadastra Contatos</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
